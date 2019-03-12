@@ -1,0 +1,12 @@
+
+
+###
+POST http://kayosh:pipapassword@37.221.195.132:18332
+Content-Type:  application/json
+
+{
+  "jsonrpc": "2.0",
+  "method": "getblockchaininfo"
+
+}
+###

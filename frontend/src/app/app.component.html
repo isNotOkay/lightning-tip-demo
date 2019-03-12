@@ -1,0 +1,7 @@
+<button (click)="tip()">Tippin me</button>
+<div fxLayout fxLayoutGap="15px" class="invoice">
+  <div class="qr-code-wrapper" ngxClipboard [cbContent]="invoice">
+    <qrcode *ngIf="invoice" [qrdata]="invoice" [size]="128" [level]="'M'"></qrcode>
+    <div class="overlay"></div>
+  </div>
+</div>

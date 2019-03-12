@@ -1,0 +1,20 @@
+{
+  jsonrpc: '2.0',
+  method: 'createrawtransaction',
+  params: [
+    [
+      [
+        Object
+      ]
+    ],
+    {
+      '2NAnhABF1gTRRGesYbPk3LkTei2Yg22A8Cy': 0.001,
+      '2MuSPjagiXheyhBP2TMRXjxPFsA1v9sEAUs': 0.0085
+    }
+  ]
+}
+{
+  result: '0200000001105f63d21ec507417a521a925a7d738a23e434743b079be5aeff71345a760b360000000000ffffffff02a08601000000000017a914c06db6c85da9f2cc3d59cd86f217c381c8586a368750f80c000000000017a914180cf68f59ee9014be59724683485650ccc5f2b58700000000',
+  error: null,
+  id: null
+}

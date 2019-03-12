@@ -1,0 +1,43 @@
+{
+  "name": "crypto-util",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack",
+    "watch": "webpack --watch",
+    "sendtransaction": "node ./dist/sendTransaction.js",
+    "getAddressBalance": "node ./dist/getAddressBalance.js",
+    "server": "node ./dist/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isNotOkay/crypto-util.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isNotOkay/crypto-util/issues"
+  },
+  "homepage": "https://github.com/isNotOkay/crypto-util#readme",
+  "dependencies": {
+    "@types/request-promise": "^4.1.42",
+    "base58check": "^2.0.0",
+    "bech32": "^1.1.3",
+    "crypto-js": "^3.1.9-1",
+    "express": "^4.16.4",
+    "inquirer": "^6.2.2",
+    "prompt": "^1.0.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "sha256": "^0.2.0",
+    "ts-loader": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^11.9.4",
+    "typescript": "^2.7.2",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3"
+  }
+}
