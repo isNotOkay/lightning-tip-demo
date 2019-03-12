@@ -1,27 +1,72 @@
-# CryptoGui
+# lightning-angular-tip
+This post demonstrates briefly how you can run your own lightning node, create QR-Codes from invoices using [angularx-qrcode](https://www.npmjs.com/package/angularx-qrcode) and let users pay these invoices using the [Eclair mobile wallet](https://play.google.com/store/apps/details?id=fr.acinq.eclair.wallet).
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.4.
+## Setup bitcoind to run on TESTNET
+Create a config file named **bitcoin.conf**:
+```
+prune=1024
+testnet=1
+server=1
+daemon=1
+zmqpubrawblock=tcp://127.0.0.1:28332
+zmqpubrawtx=tcp://127.0.0.1:28333
+rpcuser=YOUR_USERNAME
+rpcpassword=YOUR_PASSWORD
+rpcallowip=IP_OF_MACHINE_THAT_CALLS_RPC_REQUESTS
+test.rpcport=18332
+```
 
-## Development server
+Start the bitcoin node:
+```
+bitcoind
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Setup lnd to run on TESTNET
 
-## Code scaffolding
+Create a config file named **lnd.conf**:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+bitcoin.active=1
+bitcoin.testnet=1
+bitcoin.node=bitcoind
+alias=YOUR_NODE_NAME
+debuglevel=debug
+restlisten=0.0.0.0:8080
+no-macaroons: true // just for testing purposes!
+```
 
-## Build
+Start the lightning node:
+```
+lnd
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Open a new tab to unlock your lightning node:
+```
+lncli --network=testnet unlock
+```
 
-## Running unit tests
+Wait a few minutes and check whether your node is accessible from outside: [https://1ml.com/testnet/](https://1ml.com/testnet/).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Grab the Code
+```
+git clone https://github.com/isNotOkay/lightning-tip-demo
+```
 
-## Running end-to-end tests
+## Start the Backend
+```
+cd backend
+npm install && npm run build && npm run start
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Start the Frontend
+```
+cd frontend
+npm install && ng serve
+```
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Send tips
+Install [Eclair mobile wallet](https://play.google.com/store/apps/details?id=fr.acinq.eclair.wallet), connect to your lightning node and scan the generated QR-Code. That's all! Eclair should recognize the invoice and send 100 satoshis to your lightning node.
+```
+
+

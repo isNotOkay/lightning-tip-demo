@@ -1,27 +1,6 @@
 
 
-.qr-code-wrapper {
-  position: relative;
-
-  &:hover .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 99;
-    background: rgba(1, 1, 1, 0.5);
-    cursor: pointer;
-  }
-}
-
-
-
-.invoice {
-  padding-top: 10px;
-
-  .text {
-    overflow-wrap: break-word;
-    width: 300px;
-  }
+qrcode {
+  display: inline-block;
+  margin-top: 15px;
 }
