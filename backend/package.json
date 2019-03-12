@@ -4,12 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack",
     "watch": "webpack --watch",
-    "sendtransaction": "node ./dist/sendTransaction.js",
-    "getAddressBalance": "node ./dist/getAddressBalance.js",
-    "server": "node ./dist/server.js"
+    "start": "node ./dist/index.js"
   },
   "repository": {
     "type": "git",

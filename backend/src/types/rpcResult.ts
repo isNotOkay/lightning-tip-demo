@@ -1,3 +1,0 @@
-interface RpcResult {
-    result: any,
-}

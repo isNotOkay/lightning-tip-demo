@@ -2,9 +2,7 @@ module.exports = {
     "mode": "development",
     "entry": {
         "index": "./src/index.ts",
-        "getAddressBalance": "./src/commands/getAddressBalance.command.ts",
-        "sendTransaction": "./src/commands/sendTransaction.command.ts",
-        "server": "./src/server.ts"
+
     },
     "target": 'node',
     "output": {
