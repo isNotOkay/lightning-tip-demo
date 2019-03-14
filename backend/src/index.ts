@@ -21,7 +21,7 @@ app.get("/tip", (req, res) => {
     http.post('https://37.221.195.132:8080/v1/invoices', {
         body: {
             memo: `Tip No. ${new Date().getTime()}`,
-            value: 3500
+            value: 3000
         },
         headers: {
             'Grpc-Metadata-macaroon': macaroonHexString
