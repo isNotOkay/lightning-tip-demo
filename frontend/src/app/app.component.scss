@@ -1,6 +1,43 @@
 
+.invoice-wrapper {
+  position: relative;
+  width: 128px;
+  height: 128px;
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 128px;
+  height: 128px;
+  z-index: 99;
+  background: rgba(1, 1, 1, 0.2)
+}
 
 qrcode {
-  display: inline-block;
-  margin-top: 15px;
+  opacity: 0;
+  transition: opacity 2s;
+}
+
+qrcode.active {
+  opacity: 1;
+}
+
+.button {
+  color: white;
+  cursor: pointer;
+  width: 128px;
+  height: 128px;
+  background: #66BB6A;
+  border-radius: 4px;
+}
+
+.description {
+  font-weight: 600;
+  font-family: "Helvetica Neue", "San Francisco", "Segoe UI", Roboto, Arial;
+
+  &.small {
+    font-size: 13px;
+  }
 }

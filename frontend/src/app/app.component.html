@@ -1,6 +1,24 @@
-<div>
-  <button (click)="tip()">Generate Invoice over 100 satoshis</button>
+
+
+
+<div fxLayout fxLayoutGap="5px">
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <qrcode class="active" [qrdata]="nodeUri" [size]="128" [level]="'M'"></qrcode>
+    <div class="description small">Node URI</div>
+  </div>
+
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <div class="invoice-wrapper">
+      <div *ngIf="!invoice" class="button" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px"
+           (click)="tip()">
+        <span class="description">Tip 0.03 mBTC</span>
+        <img src="assets/ltn.svg" alt="logo" width="48px">
+      </div>
+      <div *ngIf="loading" fxLayout fxLayoutAlign="center center" class="loading-overlay">
+        <mat-spinner [diameter]="70"></mat-spinner>
+      </div>
+      <qrcode *ngIf="invoice" [ngClass]="{active: invoice}" [qrdata]="invoice" [size]="128" [level]="'M'"></qrcode>
+    </div>
+    <div class="description small">Invoice</div>
+  </div>
 </div>
-<qrcode *ngIf="invoice" [qrdata]="invoice" [size]="128" [level]="'M'"></qrcode>
-
-
